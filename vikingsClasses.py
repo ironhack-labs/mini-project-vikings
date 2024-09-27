@@ -1,8 +1,6 @@
 import random
 
 # Soldier
-
-
 class Soldier:
     def __init__(self, health, strength):
         self.health = health
@@ -16,11 +14,10 @@ class Soldier:
     
 
 # Viking
-
 class Viking(Soldier):
     def __init__(self, name, health, strength):
+        super().__init__(health, strength) # Changed from Teacher's feedback: There can be no statements before calling the init on a parent
         self.name = name
-        super().__init__(health, strength)
 
     def battleCry(self):
         return "Odin Owns You All!"
@@ -47,7 +44,7 @@ class Saxon(Soldier):
         else:
             return f"A Saxon has died in combat"
 
-# Davicente
+# War
 class War():
     def __init__(self):
         self.vikingArmy = []
