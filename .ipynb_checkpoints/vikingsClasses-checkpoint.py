@@ -34,6 +34,7 @@ class Viking(Soldier):
         # your code here
         return "Odin Owns You All!"
 
+
     def receiveDamage(self, damage):
         # your code here
         
@@ -43,6 +44,7 @@ class Viking(Soldier):
             return "{} has received {} points of damage".format(self.name,damage)
         else:
             return "{} has died in act of combat".format(self.name)
+
             
 
 
@@ -64,7 +66,7 @@ class Saxon(Soldier):
             return "A Saxon has received {} points of damage".format(damage)
         else:
             return "A Saxon has died in combat"
-        
+
 
 # Davicente
 class War():
