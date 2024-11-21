@@ -6,10 +6,10 @@ import random
 class Soldier:
     def __init__(self, health, strength):
         self.health = health
-        self.strenght = strength
+        self.strength = strength
     
     def attack(self):
-        return self.strenght
+        return self.strength
 
     def receiveDamage(self, damage):
         self.health -= damage
@@ -49,44 +49,44 @@ class Saxon(Soldier):
 
 class War():
     def __init__(self):
-        self.viking_army = []
-        self.saxon_army = []
+        self.vikingArmy = []
+        self.saxonArmy = []
 
     def addViking(self, viking):
-        self.viking_army.append(viking)
+        self.vikingArmy.append(viking)
     
     def addSaxon(self, saxon):
-        self.saxon_army.append(saxon)
+        self.saxonArmy.append(saxon)
     
     def vikingAttack(self):
-        if not self.saxon_army:
+        if not self.saxonArmy:
             return None
-        saxon_left = random.randint(0, len(self.saxon_army) - 1)
-    saxon = self.saxon_army[saxon_left]
-    damage = random.choice([viking.strength for viking in self.viking_army])
-    result = saxon.receive_damage(damage)
-    self.saxon_army = [sax for sax in self.saxon_army if sax.health > 0]
-    return result
+        saxon_left = random.randint(0, len(self.saxonArmy) - 1)
+        saxon = self.saxonArmy[saxon_left]
+        damage = random.choice([viking.strength for viking in self.vikingArmy])
+        result = saxon.receiveDamage(damage)
+        self.saxonArmy = [sax for sax in self.saxonArmy if sax.health > 0]
+        return result
     
     def saxonAttack(self):
-        if not self.viking_army:
+        if not self.vikingArmy:
             return None
-        viking_index = random.randint(0, len(self.viking_army) - 1)
-        viking = self.viking_army[viking_index]
-        damage = random.choice([saxon.strength for saxon in self.saxon_army])
-        result = viking.receive_damage(damage)
-        self.viking_army = [vik for vvik in self.viking_army if vik.health > 0]
+        viking_index = random.randint(0, len(self.vikingArmy) - 1)
+        viking = self.vikingArmy[viking_index]
+        damage = random.choice([saxon.strength for saxon in self.saxonArmy])
+        result = viking.receiveDamage(damage)
+        self.vikingArmy = [vik for vik in self.vikingArmy if vik.health > 0]
         return result
 
     def showStatus(self):
-        if not self.saxon_army:
+        if not self.saxonArmy:
             return "Vikings have won the war of the century!"
-        elif not self.viking_army:
+        elif not self.vikingArmy:
             return "Saxons have fought for their lives and survive another day..."
         else:
             return "Vikings and Saxons are still in the thick of battle."
         
-        
+
 
     pass
 
