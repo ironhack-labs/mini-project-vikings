@@ -68,21 +68,25 @@ class War():
         #pass
         self.saxonArmy.append(saxon)
     def vikingAttack(self):
+        i="Everyone is deathd"
         # your code here
-        viking = random.choice(self.vikingArmy)
-        saxon = random.choice(self.saxonArmy)
-        i = saxon.receiveDamage(viking.strength)
-        if saxon.health <= 0:
-            self.saxonArmy.remove(saxon)
+        if len(self.saxonArmy) > 0 and len(self.vikingArmy) > 0:
+            viking = random.choice(self.vikingArmy)
+            saxon = random.choice(self.saxonArmy)
+            i = saxon.receiveDamage(viking.strength)
+            if saxon.health <= 0:
+                self.saxonArmy.remove(saxon)
         return i
         #pass    
     def saxonAttack(self):
         # your code here
-        viking = random.choice(self.vikingArmy)
-        saxon = random.choice(self.saxonArmy)
-        i = viking.receiveDamage(saxon.strength)
-        if viking.health <= 0:
-            self.vikingArmy.remove(viking)
+        i="Everyone is deathd"
+        if len(self.saxonArmy) > 0 and len(self.vikingArmy) > 0:
+            viking = random.choice(self.vikingArmy)
+            saxon = random.choice(self.saxonArmy)
+            i = viking.receiveDamage(saxon.strength)
+            if viking.health <= 0:
+                self.vikingArmy.remove(viking)
         return i
         #pass
     def showStatus(self):
