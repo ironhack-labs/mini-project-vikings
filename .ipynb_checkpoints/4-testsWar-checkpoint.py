@@ -13,10 +13,10 @@ class TestWar(unittest.TestCase):
         self.assertEqual(len(signature(War).parameters), 0)
 
     def testVikingArmy(self):
-        self.assertEqual(self.war.VikingArmy, [])
+        self.assertEqual(self.war.vikingArmy, [])
 
     def testSaxonArmy(self):
-        self.assertEqual(self.war.SaxonArmy, [])
+        self.assertEqual(self.war.saxonArmy, [])
 
 
 class TestWar2(unittest.TestCase):
@@ -46,7 +46,7 @@ class TestWar2(unittest.TestCase):
         self.assertEqual(len(signature(self.war.addViking).parameters), 1)
 
     def testAddVikingInList(self):
-        self.assertEqual(self.war.VikingArmy, [self.viking])
+        self.assertEqual(self.war.vikingArmy, [self.viking])
 
     def testAddVikingReturnNull(self):
         self.assertEqual(self.war.addViking(self.viking), None)
@@ -58,7 +58,7 @@ class TestWar2(unittest.TestCase):
         self.assertEqual(len(signature(self.war.addSaxon).parameters), 1)
 
     def testSaxonArmyReturnEmptyList(self):
-        self.assertEqual(self.war.SaxonArmy, [self.saxon])
+        self.assertEqual(self.war.saxonArmy, [self.saxon])
 
     def testAddSaxonReturnNone(self):
         self.assertEqual(self.war.addSaxon(self.saxon), None)
@@ -76,7 +76,7 @@ class TestWar2(unittest.TestCase):
 
     def testVikingAttack(self):
         self.war.vikingAttack()
-        self.assertEqual(len(self.war.SaxonArmy), 0)
+        self.assertEqual(len(self.war.saxonArmy), 0)
 
     def testAddSaxon(self):
         print(self.war.__dict__)
@@ -95,10 +95,10 @@ class TestWar2(unittest.TestCase):
 
     def testVikingArmyList(self):
         for i in range(12):
-            if(len(self.war.VikingArmy) == 0):
+            if(len(self.war.vikingArmy) == 0):
                 break
             self.war.saxonAttack()
-        self.assertEqual(len(self.war.VikingArmy), 0)
+        self.assertEqual(len(self.war.vikingArmy), 0)
 
     def testReturnOfSaxonAttack(self):
         self.assertEqual(self.war.saxonAttack(), self.viking.name +

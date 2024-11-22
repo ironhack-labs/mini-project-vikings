@@ -46,24 +46,3 @@ class TestSoldier(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-import random
-
-# Soldier
-
-
-class Soldier:
-    def __init__(self, health, strength):
-        # your code here0
-        self.health = health # attribute health 
-        self.strength = strength # attribute strength 
-             
-    def attack(self):
-        # your code here
-        return self.strength
-                        
-
-    def receiveDamage(self, damage):
-        # your code here
-        self.damage -= damage
-        if self.health < 0:
-            self.health = 0
