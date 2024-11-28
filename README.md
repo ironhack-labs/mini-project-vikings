@@ -1,7 +1,13 @@
 ![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
-This is a project covering Python basics I did as part of the 9-week Ironhack Bootcamp I attended from September to November 2024.
+
+This project was part of a 9-week training course I attended in 2024.
+- Bootcamp: Ironhack [AI Engineering bootcamp](https://www.ironhack.com/de-en/artificial-intelligence/remote)
+- Date: September to November 2024
+- Project topics: Python basics, OOP, inheritage
 
 # Mini Project | Vikings
+
+![](https://i.imgur.com/5TPElt8.jpg)
 
 ## Introduction
 
@@ -100,10 +106,6 @@ Ran 10 tests in 0.001s
 ```
 
 ## Exercise
-
-![](https://i.imgur.com/5TPElt8.jpg)
-
----
 
 **Write the code**
 
