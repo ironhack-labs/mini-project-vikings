@@ -5,9 +5,11 @@ This project was part of a 9-week training course I attended in 2024.
 - Date: September to November 2024
 - Project topics: Python basics, OOP, inheritage
 
-Final Grade and teacher's feedback:   **10 / 10**  
-
-_Good code and docstrings. You even implemented __repr()__ and fixed wargame.py. Congrats!_
+Teacher's feedback:
+```
+Good code and docstrings. You even implemented __repr()__ and fixed wargame.py. Congrats!
+Final grade: 10 / 10  
+```
 
 
 ----
