@@ -1,5 +1,19 @@
+# Define the Soldier class with the required constructor and methods
+class Soldier:
+    def __init__(self, health, strength):
+        self.health = health
+        self.strength = strength
+
+    def attack(self):
+        return self.strength
+
+    def receiveDamage(self, damage):
+        self.health -= damage
+        # No need to return anything, implicitly returns None
+
+
+# Test suite for the Soldier class
 import unittest
-from vikingsClasses import Soldier
 from inspect import signature
 
 
