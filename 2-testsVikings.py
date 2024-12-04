@@ -1,67 +1,64 @@
 import unittest
-from vikingsClasses import Viking
+from vikingsClasses import Saxon
 from inspect import signature
 
-
-class TestViking(unittest.TestCase):
+class TestSaxon(unittest.TestCase):
 
     @classmethod
     def setUp(cls):
-        cls.name = 'Harald'
-        cls.strength = 150
-        cls.health = 300
-        cls.viking = Viking(cls.name, cls.health, cls.strength)
+        # Setup test values for Saxon
+        cls.health = 60
+        cls.strength = 25
+        cls.saxon = Saxon(cls.health, cls.strength)
 
-    def testShouldReciveThreeParams(self):
-        self.assertEqual(len(signature(Viking).parameters), 3)
-
-    def testName(self):
-        self.assertEqual(self.viking.name, self.name)
+    def testSaxonShouldReceiveTwoParams(self):
+        # Test to ensure Saxon constructor receives 2 parameters
+        self.assertEqual(len(signature(Saxon).parameters), 2)
 
     def testHealth(self):
-        self.assertEqual(self.viking.health, self.health)
+        # Test if Saxon's health is set correctly
+        self.assertEqual(self.saxon.health, self.health)
 
-    def testStrenght(self):
-        self.assertEqual(self.viking.strength, self.strength)
+    def testStrength(self):
+        # Test if Saxon's strength is set correctly
+        self.assertEqual(self.saxon.strength, self.strength)
 
-    def testAttackShouldBeFunction(self):
-        self.assertEqual(callable(self.viking.attack), True)
+    def testAttack(self):
+        # Test if Saxon's attack method is callable
+        self.assertEqual(callable(self.saxon.attack), True)
 
-    def testAttackReciveNoParameters(self):
-        self.assertEqual(len(signature(self.viking.attack).parameters), 0)
+    def testAttackShouldReceiveNoParams(self):
+        # Test if Saxon's attack method takes no parameters
+        self.assertEqual(len(signature(self.saxon.attack).parameters), 0)
 
-    def testAttackShouldReturnStrength(self):
-        self.assertEqual(self.viking.attack(), self.strength)
+    def testAttackReturnStrength(self):
+        # Test if Saxon's attack method returns the strength
+        self.assertEqual(self.saxon.attack(), self.strength)
 
     def testReceiveDamageIsFunction(self):
-        self.assertEqual(callable(self.viking.receiveDamage), True)
+        # Test if Saxon's receiveDamage method is callable
+        self.assertEqual(callable(self.saxon.receiveDamage), True)
 
-    def testReceiveDamageReciveOneParam(self):
-        self.assertEqual(
-            len(signature(self.viking.receiveDamage).parameters), 1)
+    def testReceiveDamageShouldReceiveOneParam(self):
+        # Test if Saxon's receiveDamage method takes 1 parameter (damage)
+        self.assertEqual(len(signature(self.saxon.receiveDamage).parameters), 1)
 
-    def testReciveDamageShouldRestHealth(self):
-        self.viking.receiveDamage(50)
-        self.assertEqual(self.viking.health, self.health - 50)
+    def testReceiveDamage(self):
+        # Test if Saxon's health decreases correctly after receiving damage
+        self.saxon.receiveDamage(1)
+        self.assertEqual(self.saxon.health, self.health - 1)
 
-    def testReciveDamageShouldReturnString50(self):
-        self.assertEqual(self.viking.receiveDamage(50), self.name +
-                         ' has received 50 points of damage')
+    def testReceiveDamageString45(self):
+        # Test the string returned by Saxon's receiveDamage method when receiving 45 damage
+        self.assertEqual(self.saxon.receiveDamage(45), 'A Saxon has received 45 points of damage')
 
-    def testReciveDamageShouldReturnString70(self):
-        self.assertEqual(self.viking.receiveDamage(70), self.name +
-                         ' has received 70 points of damage')
+    def testReceiveDamageString10(self):
+        # Test the string returned by Saxon's receiveDamage method when receiving 10 damage
+        self.assertEqual(self.saxon.receiveDamage(10), 'A Saxon has received 10 points of damage')
 
-    def testReceiveDamageShouldReturnStringDeath(self):
-        self.assertEqual(self.viking.receiveDamage(self.health),
-                         self.name + ' has died in act of combat')
-
-    def testBattleCry(self):
-        self.assertEqual(callable(self.viking.battleCry), True)
-
-    def testBattleCryReturnString(self):
-        self.assertEqual(self.viking.battleCry(), 'Odin Owns You All!')
-
+    def testReceiveDamageStringDied(self):
+        # Test the string returned when Saxon dies after receiving full health damage
+        self.assertEqual(self.saxon.receiveDamage(self.health), 'A Saxon has died in combat')
 
 if __name__ == '__main__':
     unittest.main()
