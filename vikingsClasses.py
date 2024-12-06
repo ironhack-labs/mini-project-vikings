@@ -134,15 +134,18 @@ class War():
             return "Viking Army not have soldiers!"  # Optional: for testing 
         else:
             # Randon selection for the Saxon and the Viking 
-            saxon = random.randint(0, len(self.saxonArmy) - 1)
-            viking = random.randint(0, len(self.vikingArmy) - 1)
+            # saxon = random.randrange(len(self.saxonArmy)) # random.choice(
+            # viking = random.randrange(len(self.vikingArmy))
+            saxon = random.choice(self.saxonArmy)
+            viking = random.choice(self.vikingArmy)
 
             # attack the Saxon 
-            attack_result_msg = self.saxonArmy[saxon].receiveDamage( self.vikingArmy[viking].attack())
+            # attack_result_msg = self.saxonArmy[saxon].receiveDamage( self.vikingArmy[viking].attack())
+            attack_result_msg = saxon.receiveDamage( viking.attack() )
 
             # Remove the Saxon from the Saxon Army if die
-            if self.saxonArmy[saxon].health <= 0:            
-                self.saxonArmy.pop(saxon)
+            if saxon.health <= 0:            
+                self.saxonArmy.remove(saxon)
             return attack_result_msg
     
     def saxonAttack(self):
@@ -159,15 +162,15 @@ class War():
             return "Saxon Army not have soldiers!" # Optional: for testing
         else:
             # Randon selection for the Saxon and the Viking 
-            saxon = random.randint(0, len(self.saxonArmy) - 1)
-            viking = random.randint(0, len(self.vikingArmy) - 1)
+            saxon = random.choice(self.saxonArmy)
+            viking = random.choice(self.vikingArmy)
     
             # attack the Viking 
-            attack_result_msg = self.vikingArmy[viking].receiveDamage(self.saxonArmy[saxon].attack())
+            attack_result_msg = viking.receiveDamage(saxon.attack())
     
             # Remove the Viking from the Viking Army if die
-            if self.vikingArmy[viking].health <= 0:
-                self.vikingArmy.pop(viking)
+            if viking.health <= 0:
+                self.vikingArmy.remove(viking)
             return attack_result_msg
 
     def showStatus(self):
