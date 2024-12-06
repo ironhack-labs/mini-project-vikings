@@ -53,9 +53,5 @@ class TestSaxon(unittest.TestCase):
                          'A Saxon has died in combat')
 
 
-def main():
-    print("¡T!")
-
-# Bloque condicional para ejecutar la función main
-if __name__ == "__main__":
-    main()
+if __name__ == '__main__':
+    unittest.main()
